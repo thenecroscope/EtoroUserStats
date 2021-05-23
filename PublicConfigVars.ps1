@@ -1,0 +1,1 @@
+$Global:URLStrapiEtoro = "http://192.168.0.5:1337/Etoros" #Docker Strapi API Keys
