@@ -1,4 +1,9 @@
-﻿.\PublicConfigVars.Ps1
+﻿Push-Location
+$Fullpath = $MyInvocation.MyCommand.Path
+$Directory = Split-Path $Fullpath -Parent
+Set-Location $Directory
+
+.\PublicConfigVars.Ps1
 $UrlInfluxAPILookupKey = "URLInflux"
 $UrlEtoroLookupKey = "URLPersonalUserStats"
 

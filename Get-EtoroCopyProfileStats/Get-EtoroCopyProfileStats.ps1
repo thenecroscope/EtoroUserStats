@@ -1,4 +1,9 @@
-.\PublicConfigVars.Ps1
+Push-Location
+$Fullpath = $MyInvocation.MyCommand.Path
+$Directory = Split-Path $Fullpath -Parent
+Set-Location $Directory
+
+..\PublicConfigVars.Ps1
 $UrlInfluxAPILookupKey = "URLInflux"
 $UrlEtoroLookupKey = "URLCopyProfileStats"
 
@@ -20,3 +25,4 @@ foreach ($profileObj in $r.AggregatedMirrors) {
     $postParams = "profiles,parentusername=$ParentUsername netprofit=$NetProfit $Timeval"
     Invoke-RestMethod -Uri $InfluxUri -Method POST -Body $postParams  | Out-Null
 }
+Pop-Location
